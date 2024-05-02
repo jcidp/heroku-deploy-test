@@ -26,5 +26,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
-  "proxy": "http://localhost:3000/api/v1"
+  "proxy": "http://localhost:3000"
 }

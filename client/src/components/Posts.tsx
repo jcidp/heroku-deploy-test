@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { Post } from "../types";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     async function fetchPosts() {
-      const url = "/posts";
+      const url = "/api/v1/posts";
       try {
         const res = await fetch(url);
         if (res.ok) {
@@ -26,7 +27,7 @@ const Posts = () => {
       { posts ?
         posts.map(post => {
           return <div key={post.id} className="post">
-              <h2>{post.title}</h2>
+              <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
               <p>{post.content}</p>
             </div>;
         })

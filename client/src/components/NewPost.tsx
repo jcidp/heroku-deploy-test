@@ -12,8 +12,8 @@ const NewPost = () => {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault;
-    const url = "posts";
+    e.preventDefault();
+    const url = "/api/v1/posts";
     if (!title || !content) return;
     const body = {
       title,
@@ -30,7 +30,7 @@ const NewPost = () => {
         });
         if (!response.ok) throw new Error(response.statusText);
         const newPost: Post = await response.json();
-        navigate(`posts/${newPost.id}`);
+        navigate(`/posts/${newPost.id}`);
       } catch (e) {
         if (e instanceof Error) console.log(e);
         else throw new Error("Unexpected error");

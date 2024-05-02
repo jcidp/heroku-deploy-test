@@ -9,7 +9,7 @@ const Post = () => {
   useEffect(() => {
     async function getPost() {
       try {
-        const url = `posts/${id}`;
+        const url = `/api/v1/posts/${id}`;
         const response = await fetch(url);
         if (!response.ok) throw new Error(response.statusText);
         const json = await response.json();

@@ -3,9 +3,9 @@ class Api::V1::PostsController < ApplicationController
 
   # GET /posts
   def index
-    posts = Post.all
+    @posts = Post.all
 
-    render json: posts
+    render json: @posts
   end
 
   # GET /posts/1
@@ -18,7 +18,7 @@ class Api::V1::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      render json: @post, status: :created, location: @post
+      render json: @post, status: :created
     else
       render json: @post.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class Api::V1::PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.permit(:title, :body)
+      params.permit(:title, :content)
     end
 end
