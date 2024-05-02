@@ -1,0 +1,17 @@
+{
+  "name": "rails_vite_heroku",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "engines": {
+    "node": "20.9.0"
+  },
+  "scripts": {
+    "build": "yarn --cwd client install && yarn --cwd client build",
+    "deploy": "cp -a client/dist/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
