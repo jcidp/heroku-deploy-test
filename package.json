@@ -7,8 +7,9 @@
     "node": "20.9.0"
   },
   "scripts": {
+    "clear": "rm -rf public/",
     "build": "yarn --cwd client install && yarn --cwd client build",
-    "deploy": "cp -a client/dist/. public/",
+    "deploy": "yarn clear && cp -a client/dist/. public/",
     "heroku-postbuild": "yarn build && yarn deploy"
   },
   "keywords": [],

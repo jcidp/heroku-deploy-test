@@ -24,7 +24,7 @@ const Posts = () => {
 
   return (
     <div className="posts">
-      { posts ?
+      { posts.length > 0 ?
         posts.map(post => {
           return <div key={post.id} className="post">
               <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
